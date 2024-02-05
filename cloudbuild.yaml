@@ -1,4 +1,4 @@
-# Copyright 2020 Google LLC
+=# Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,19 +20,19 @@ steps:
     entrypoint: mvn
     args: ["package", "-Dmaven.test.skip=true"]
   - name: gcr.io/cloud-builders/docker
-    args: ["build", "-t", "gcr.io/sixth-zoo-362406/basic-project:$COMMIT_SHA", "."]
+    args: ["build", "-t", "gcr.io/hopeful-vine-413315/gcp-java:$COMMIT_SHA", "."]
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/sixth-zoo-362406/basic-project:$COMMIT_SHA']
+    args: ['push', 'gcr.io/hopeful-vine-413315/gcp-java:$COMMIT_SHA']
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
     - 'run'
     - 'deploy'
-    - 'basic-project'
+    - 'gcp-java'
     - '--image'
-    - 'gcr.io/$PROJECT_ID/basic-project:$COMMIT_SHA'
+    - 'gcr.io/$PROJECT_ID/gcp-java:$COMMIT_SHA'
     - '--region'
     - 'us-central1'
-images: ["gcr.io/sixth-zoo-362406/basic-project:$COMMIT_SHA"]
+images: ["gcr.io/hopeful-vine-413315/gcp-java:$COMMIT_SHA"]
 # [END cloudbuild_maven]
