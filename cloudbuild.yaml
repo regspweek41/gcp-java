@@ -30,7 +30,7 @@ steps:
     - 'app'
     - 'deploy'
     - 'gcp-java-manoj'
-    - '--image'
+    - '--image-url'
     - 'gcr.io/$PROJECT_ID/gcp-java:$COMMIT_SHA'
     - '--region'
     - 'us-central1'
