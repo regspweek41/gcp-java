@@ -29,7 +29,7 @@ steps:
     args:
     - 'run'
     - 'deploy'
-    - 'gcp-java'
+    - 'gcp-java-manoj'
     - '--image'
     - 'gcr.io/$PROJECT_ID/gcp-java:$COMMIT_SHA'
     - '--region'
