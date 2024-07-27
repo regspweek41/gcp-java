@@ -1,0 +1,8 @@
+runtime: custom
+env: flex
+
+service: gcp-java-manoj
+
+handlers:
+  - url: /.*
+    script: auto
